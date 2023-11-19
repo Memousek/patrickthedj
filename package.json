@@ -1,0 +1,35 @@
+{
+  "name": "elite-bot-music",
+  "version": "1.0.0",
+  "description": "Elite Bot's original music feature moved to a separate discord bot.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "ThatGuyJacobee",
+  "license": "ISC",
+  "dependencies": {
+    "@discord-player/extractor": "4.4.4",
+    "@discordjs/opus": "0.9.0",
+    "@discordjs/rest": "1.7.1",
+    "@distube/ytdl-core": "4.11.10",
+    "@evan/opus": "^1.0.2",
+    "axios": "^1.6.2",
+    "discord-api-types": "0.37.58",
+    "discord-player": "6.6.4",
+    "discord.js": "14.11.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.2",
+    "ffmpeg-static": "5.1.0",
+    "mediaplex": "^0.0.8",
+    "ms": "2.1.3",
+    "mysql2": "3.3.3",
+    "opusscript": "^0.0.8",
+    "request": "2.88.2",
+    "sequelize": "6.33.0",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.18"
+  }
+}
