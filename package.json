@@ -1,12 +1,12 @@
 {
-  "name": "elite-bot-music",
+  "name": "patrickthedj",
   "version": "1.0.0",
-  "description": "Elite Bot's original music feature moved to a separate discord bot.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js"
   },
-  "author": "ThatGuyJacobee",
+  "author": "Memousek",
   "license": "ISC",
   "dependencies": {
     "@discord-player/extractor": "4.4.4",
