@@ -1,6 +1,7 @@
 const { ApplicationCommandOptionType, EmbedBuilder } = require("discord.js");
 const { QueryType, useMainPlayer } = require("discord-player");
 const { Translate } = require("../../process_tools");
+const { MessageFlags } = require('discord.js');
 
 module.exports = {
   name: "search",
@@ -77,7 +78,7 @@ module.exports = {
       if (query.content.toLowerCase() === "cancel") {
         return inter.followUp({
           content: await Translate(`Search cancelled <✅>`),
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
       }
 
@@ -87,7 +88,7 @@ module.exports = {
           content: await Translate(
             `Invalid response, try a value between <**1**> and <**${maxTracks.length}**> or <**cancel**>... try again ? <❌>`
           ),
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
       }
 
@@ -99,13 +100,13 @@ module.exports = {
           content: await Translate(
             `I can't join the voice channel <${inter.member}>... try again ? <❌>`
           ),
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
       }
 
       await inter.followUp({
         content: await Translate(`Loading your search... <🎧>`),
-        ephemeral: true,
+        flags: MessageFlags.Ephemeral,
       });
 
       queue.addTrack(res.tracks[query.content - 1]);
@@ -119,7 +120,7 @@ module.exports = {
           content: await Translate(
             `Search timed out <${inter.member}>... try again ? <❌>`
           ),
-          ephemeral: true,
+          flags: MessageFlags.Ephemeral,
         });
     });
   },

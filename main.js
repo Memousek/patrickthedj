@@ -20,18 +20,20 @@ const player = new Player(client, {
     quality: "highestaudio",
     highWaterMark: 1 << 25,
   },
+  youtube: {
+    apiKey: process.env.YOUTUBE_API_KEY || require("./config").YOUTUBE_API_KEY, // Přidání YouTube API klíče
+  }
 });
 
-// Správná metoda pro načtení extractorů
+// Správná registrace extractorů
 (async () => {
   try {
-    await player.extractors.loadMulti(DefaultExtractors);
+    await player.extractors.loadMulti(DefaultExtractors); // Pouze DefaultExtractors
     console.log("Extractors byly úspěšně registrovány!");
   } catch (error) {
     console.error("Chyba při registraci extractorů:", error);
   }
 })();
-
 
 //console.clear();
 require("./loader");

@@ -13,12 +13,13 @@ module.exports = (queue, track) => {
 
   (async () => {
     const embed = new EmbedBuilder()
-      .setAuthor({
-        name: await Translate(
-          `Started playing <${track.title}> in <${queue.channel.name}> <🎧>`
-        ),
-        iconURL: track.thumbnail,
+        .setAuthor({ 
+          name: "Hraje se:", 
+          iconURL: track.thumbnail && track.thumbnail.startsWith("http") ? track.thumbnail : null 
       })
+      .setTitle(track.title)
+      .setURL(track.url)
+      .setThumbnail(track.thumbnail && track.thumbnail.startsWith("http") ? track.thumbnail : null)
       .setColor("#2f3136");
 
     const back = new ButtonBuilder()
