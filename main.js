@@ -1,5 +1,6 @@
 const { Player } = require("discord-player");
 const { Client, GatewayIntentBits } = require("discord.js");
+const { DefaultExtractors } = require("@discord-player/extractor");
 
 global.client = new Client({
   intents: [
@@ -14,10 +15,25 @@ global.client = new Client({
 
 client.config = require("./config");
 
-const player = new Player(client, client.config.opt.discordPlayer);
-player.extractors.loadDefault();
+const player = new Player(client, {
+  ytdlOptions: {
+    quality: "highestaudio",
+    highWaterMark: 1 << 25,
+  },
+});
 
-console.clear();
+// Správná metoda pro načtení extractorů
+(async () => {
+  try {
+    await player.extractors.loadMulti(DefaultExtractors);
+    console.log("Extractors byly úspěšně registrovány!");
+  } catch (error) {
+    console.error("Chyba při registraci extractorů:", error);
+  }
+})();
+
+
+//console.clear();
 require("./loader");
 
 client.login(client.config.app.token).catch(async (e) => {
