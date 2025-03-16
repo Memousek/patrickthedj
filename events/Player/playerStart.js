@@ -14,7 +14,9 @@ module.exports = (queue, track) => {
   (async () => {
     const embed = new EmbedBuilder()
         .setAuthor({ 
-          name: "Hraje se:", 
+          name: await Translate(
+            `Started playing <${track.title}> in <${queue.channel.name}> <🎧>`
+          ), 
           iconURL: track.thumbnail && track.thumbnail.startsWith("http") ? track.thumbnail : null 
       })
       .setTitle(track.title)
