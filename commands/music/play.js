@@ -4,12 +4,12 @@ const { Translate } = require('../../process_tools');
 
 module.exports = {
     name: 'play',
-    description:("Play a song!"),
+    description: ("Play a song!"),
     voiceChannel: true,
     options: [
         {
             name: 'song',
-            description:('The song you want to play'),
+            description: ('The song you want to play'),
             type: ApplicationCommandOptionType.String,
             required: true,
         }
@@ -17,22 +17,22 @@ module.exports = {
 
     async execute({ inter, client }) {
         const player = useMainPlayer();
-
         const song = inter.options.getString('song');
-        const res = await player.search(song, {
+
+        const res = await player.search(`ytsearch:${song}`, {
             requestedBy: inter.member,
-            searchEngine: QueryType.AUTO
+            searchEngine: QueryType.YOUTUBE_SEARCH
         });
 
         let defaultEmbed = new EmbedBuilder().setColor('#2f3136');
 
         if (!res?.tracks.length) {
-            defaultEmbed.setAuthor({ name: await Translate(`No results found... try again ? <❌>`) });
+            defaultEmbed.setAuthor({ name: await Translate(`No results found... try again? ❌`) });
             return inter.editReply({ embeds: [defaultEmbed] });
         }
 
         try {
-            const { track } = await player.play(inter.member.voice.channel, song, {
+            const { track } = await player.play(inter.member.voice.channel, res.tracks[0].url, {
                 nodeOptions: {
                     metadata: {
                         channel: inter.channel
@@ -45,11 +45,11 @@ module.exports = {
                 }
             });
 
-            defaultEmbed.setAuthor({ name: await Translate(`Loading <${track.title}> to the queue... <✅>`) });
+            defaultEmbed.setAuthor({ name: await Translate(`Loading <${track.title}> to the queue... ✅`) });
             await inter.editReply({ embeds: [defaultEmbed] });
         } catch (error) {
             console.log(`Play error: ${error}`);
-            defaultEmbed.setAuthor({ name: await Translate(`I can't join the voice channel... try again ? <❌>`) });
+            defaultEmbed.setAuthor({ name: await Translate(`I can't join the voice channel... try again? ❌`) });
             return inter.editReply({ embeds: [defaultEmbed] });
         }
     }

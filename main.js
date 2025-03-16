@@ -1,39 +1,24 @@
-const { Player } = require("discord-player");
-const { Client, GatewayIntentBits } = require("discord.js");
-const { DefaultExtractors } = require("@discord-player/extractor");
+const { Player } = require('discord-player');
+const { Client, GatewayIntentBits } = require('discord.js');
+const { YoutubeiExtractor } = require('discord-player-youtubei'); // Import the new extractor
 
 global.client = new Client({
-  intents: [
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildMembers,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.GuildVoiceStates,
-    GatewayIntentBits.MessageContent,
-  ],
-  disableMentions: "everyone",
+    intents: [
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildVoiceStates,
+        GatewayIntentBits.MessageContent,
+    ],
+    disableMentions: 'everyone',
 });
 
-client.config = require("./config");
+client.config = require('./config');
 
-const player = new Player(client, {
-  ytdlOptions: {
-    quality: "highestaudio",
-    highWaterMark: 1 << 25,
-  },
-  youtube: {
-    apiKey: process.env.YOUTUBE_API_KEY || require("./config").YOUTUBE_API_KEY, // Přidání YouTube API klíče
-  }
-});
+const player = new Player(client, client.config.opt.discordPlayer);
+// Register the new Youtubei extractor
+player.extractors.register(YoutubeiExtractor, {});
 
-// Správná registrace extractorů
-(async () => {
-  try {
-    await player.extractors.loadMulti(DefaultExtractors); // Pouze DefaultExtractors
-    console.log("Extractors byly úspěšně registrovány!");
-  } catch (error) {
-    console.error("Chyba při registraci extractorů:", error);
-  }
-})();
 
 //console.clear();
 require("./loader");
