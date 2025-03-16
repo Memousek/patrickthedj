@@ -46,7 +46,7 @@ module.exports = async ({ client, inter, queue }) => {
     )
     .setTimestamp()
     .setFooter({
-      text: await Translate("Patrick the DJ <💩>"),
+      text: await Translate(client.config.app.botName),
       iconURL: inter.member.avatarURL({ dynamic: true }),
     });
 

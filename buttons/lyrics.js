@@ -41,7 +41,7 @@ module.exports = async ({ inter, queue }) => {
       trimmedLyrics.length === 1997 ? `${trimmedLyrics}...` : trimmedLyrics
     )
     .setFooter({
-      text: await Translate("Patrick the DJ <💩>"),
+      text: await Translate(client.config.app.botName),
       iconURL: inter.member.avatarURL({ dynamic: true }),
     })
     .setTimestamp()

@@ -45,7 +45,7 @@ module.exports = {
         )
       )
       .setFooter({
-        text: await Translate("Patrick the DJ <💩>"),
+        text: await Translate(client.config.app.botName),
         iconURL: inter.member.avatarURL({ dynamic: true }),
       })
       .setColor("#2f3136")

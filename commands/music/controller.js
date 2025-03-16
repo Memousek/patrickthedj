@@ -36,7 +36,7 @@ module.exports = {
       .setImage(inter.guild.iconURL({ size: 4096, dynamic: true }))
       .setColor("#2f3136")
       .setFooter({
-        text: await Translate("Patrick the DJ <💩>"),
+        text: await Translate(client.config.app.botName),
         iconURL: inter.member.avatarURL({ dynamic: true }),
       });
 

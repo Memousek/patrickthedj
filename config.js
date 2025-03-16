@@ -10,6 +10,7 @@ module.exports = {
     loopMessage: false,
     lang: "cs",
     enableEmojis: true,
+    botName: "Paprik",
   },
 
   emojis: {

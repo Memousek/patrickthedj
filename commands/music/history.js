@@ -32,7 +32,7 @@ module.exports = {
       .setColor("#2f3136")
       .setTimestamp()
       .setFooter({
-        text: await Translate("Patrick the DJ <💩>"),
+        text: await Translate(client.config.app.botName),
         iconURL: inter.member.avatarURL({ dynamic: true }),
       });
 
