@@ -1,6 +1,6 @@
 const { Player } = require('discord-player');
 const { Client, GatewayIntentBits } = require('discord.js');
-const { SoundCloudExtractor } = require('@discord-player/extractor');
+const { YoutubeiExtractor } = require('discord-player-youtubei');
 
 global.client = new Client({
     intents: [
@@ -16,7 +16,7 @@ global.client = new Client({
 client.config = require('./config');
 
 const player = new Player(client, client.config.opt.discordPlayer);
-player.extractors.register(SoundCloudExtractor, {});
+player.extractors.register(YoutubeiExtractor, {});
 
 //console.clear();
 require("./loader");

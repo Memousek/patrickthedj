@@ -21,7 +21,7 @@ module.exports = {
         const song = inter.options.getString('song');
         const res = await player.search(song, {
             requestedBy: inter.member,
-            searchEngine: QueryType.SOUNDCLOUD_TRACK
+            searchEngine: QueryType.AUTO
         });
 
         let defaultEmbed = new EmbedBuilder().setColor('#2f3136');
