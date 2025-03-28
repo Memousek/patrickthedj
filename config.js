@@ -3,7 +3,7 @@ require("dotenv").config();
 module.exports = {
   app: {
     token: process.env.TOKEN,
-    playing: "/play | DEV Mode 👽",
+    playing: "/play",
     global: true,
     guild: "1239135898612924438",
     extraMessages: false,
