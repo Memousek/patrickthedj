@@ -16,7 +16,6 @@ module.exports = async ({ inter, queue }) => {
       q: queue.currentTrack.title,
     })
     .catch(async (e) => {
-      console.log(e);
       return inter.editReply({
         content: await Translate(`Error! Please contact Developers! | <❌>`),
       });

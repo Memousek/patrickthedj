@@ -6,20 +6,21 @@
     "repository": "https://github.com/Memousek/patrickthedj",
     "description": "Discord music bot based on ZerioDev's discord bot",
     "scripts": {
-        "start": "node main.js"
+        "start": "npm install bgutils-js && node main.js"
     },
     "dependencies": {
-        "@discord-player/extractor": "^7.1.0",
+        "@discord-player/extractor": "^4.3.1",
         "@discordjs/opus": "^0.9.0",
         "@distube/ytdl-core": "^4.11.8",
         "@evan/opus": "^1.0.3",
-        "discord-player": "^7.1.0",
-        "discord-player-youtubei": "^1.4.2",
-        "discord.js": "^14.18.0",
-        "dotenv": "^16.4.7",
-        "ffmpeg-static": "^5.2.0",
+        "bgutils-js": "^3.2.0",
+        "discord-player": "6.6.9-dev.1",
+        "discord-player-youtubei": "^1.3.3",
+        "discord.js": "^14.13.0",
+        "dotenv": "^16.4.5",
+        "ffmpeg-static": "^5.0.2",
         "ms": "^3.0.0-canary.1",
-        "play-dl": "^1.9.7",
+        "play-dl": "^1.9.6",
         "translate": "^3.0.0"
     }
 }
