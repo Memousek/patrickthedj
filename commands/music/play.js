@@ -42,6 +42,8 @@ module.exports = {
                     leaveOnEmptyCooldown: client.config.opt.leaveOnEmptyCooldown,
                     leaveOnEnd: client.config.opt.leaveOnEnd,
                     leaveOnEndCooldown: client.config.opt.leaveOnEndCooldown,
+                    selfDeaf: false,
+                    selfMute: false
                 }
             });
 
