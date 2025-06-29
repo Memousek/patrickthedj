@@ -154,8 +154,8 @@ Configure custom display names for users:
 {
   "users": {
     "username": {
-      "nominative": "Display Name",
-      "vocative": "Hey Display Name"
+      "nominative": "Eliška",
+      "vocative": "Eliško"
     }
   }
 }
