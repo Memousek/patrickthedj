@@ -36,6 +36,7 @@ module.exports = {
     leaveOnEmpty: true,
     leaveOnEmptyCooldown: 30000,
     leaveOnEnd: false,
+    debug: true,
     leaveOnEndCooldown: 30000,
     discordPlayer: {
       ytdlOptions: {
